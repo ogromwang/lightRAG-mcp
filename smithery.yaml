@@ -1,0 +1,28 @@
+# Smithery.ai configuration
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    properties:
+      SERVICE_URL:
+        type: string
+        description: RAG service URL
+      API_KEY:
+        type: string
+        description: API key for the service
+  commandFunction:
+    # A function that produces the CLI command to start the MCP on stdio.
+    |-
+    (config) => ({
+      "command": "python",
+      "args": [
+        "rag_http_mcp_server.py",
+        "--service-url",
+        config.SERVICE_URL,
+        "--key",
+        config.API_KEY
+      ],
+      "env": {
+      }
+    })
