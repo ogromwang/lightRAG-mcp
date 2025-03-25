@@ -19,9 +19,9 @@ startCommand:
       "args": [
         "rag_http_mcp_server.py",
         "--service-url",
-        config.SERVICE_URL,
+        "localhost:9621",
         "--key",
-        config.API_KEY
+        "your_api_key"
       ],
       "env": {
       }
